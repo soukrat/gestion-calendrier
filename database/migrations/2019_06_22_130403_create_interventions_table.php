@@ -15,7 +15,8 @@ class CreateInterventionsTable extends Migration
     {
         Schema::create('interventions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
+            $table->datetime('start');
+            $table->datetime('end');
             $table->timestamps();
         });
     }

@@ -16,10 +16,10 @@ class AddColumneToIntervention extends Migration
         Schema::table('interventions', function (Blueprint $table) {
             $table->bigInteger('intervenant_id')->unsigned();
             $table->foreign('intervenant_id')->references('id')->on('intervenants');
-            $table->bigInteger('classe_id')->unsigned();
-            $table->foreign('classe_id')->references('id')->on('classes');
             $table->bigInteger('salle_id')->unsigned();
             $table->foreign('salle_id')->references('id')->on('salles');
+            $table->bigInteger('filiere_id')->unsigned()->after('id');
+            $table->foreign('filiere_id')->references('id')->on('filieres');
         });
     }
 
@@ -37,8 +37,8 @@ class AddColumneToIntervention extends Migration
             $table->dropForeign(['classe_id']);
             $table->dropColumn('classe_id');
 
-            $table->dropForeign(['salle_id']);
-            $table->dropColumn('salle_id');
+            $table->dropForeign(['filiere_id']);
+            $table->dropColumn('filiere_id');
         });
     }
 }

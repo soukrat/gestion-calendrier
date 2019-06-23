@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Intervenant;
-use App\Classe;
 use App\Salle;
+use App\Filiere;
 
 class Intervention extends Model
 {
@@ -14,12 +14,12 @@ class Intervention extends Model
 
     	return $this->hasOne('Intervenant');
     }
-    public function classe(){
-
-    	return $this->hasOne('Classe');
-    }
     public function salle(){
 
     	return $this->hasOne('Salle');
+    }
+     public function Filiere(){
+
+        return $this->hasMany('Filiere');
     }
 }
